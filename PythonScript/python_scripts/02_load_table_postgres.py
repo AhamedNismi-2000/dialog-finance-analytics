@@ -20,7 +20,7 @@ engine = create_engine(
 
 # 3. Load Excel file
 BASE_DIR = Path(__file__).resolve().parent.parent.parent
-file_path = BASE_DIR / "Data" / "raw_data" / "FintechTrainee.xlsx"
+file_path = BASE_DIR / "Data" / "cleaned_data" / "FintechTrainee_Cleaned.xlsx"
 
 df = pd.read_excel(file_path)
 
