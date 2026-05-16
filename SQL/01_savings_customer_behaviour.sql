@@ -1,37 +1,9 @@
 
 --Q1: Savings & Customer Behaviour
 
--- FINDINGS : From Q1a — Average Savings Balance by Segment, Province, Urban/Rural
 
--- BY SEGMENT:
--- Premium customers average LKR 2,655,800 — 6x more than Regular
--- (LKR 424,430) and 32x more than Starter (LKR 82,628).
--- Despite being the smallest group (90 customers), Premium holds
--- a disproportionately large share of total deposits.
--- Business implication: losing even a few Premium customers
--- significantly impacts total deposit value.
- 
--- BY PROVINCE:
--- Eastern province has the highest average balance (LKR 965,044)
--- despite having only 49 customers — the second smallest group.
--- This is unexpected as Eastern province is not typically a
--- high-income region. Could be driven by a small number of
--- high-value customers skewing the average upward.
--- Sabaragamuwa (LKR 925,221) and Western (LKR 854,127) follow.
--- Uva has the lowest average (LKR 630,638) — may reflect
--- lower income levels in that region.
- 
--- BY URBAN/RURAL:
--- Urban customers hold 33% more on average than Suburban
--- (LKR 898,119 vs LKR 676,103).
--- Rural sits in the middle at LKR 733,468 — slightly higher
--- than Suburban which is unexpected and worth noting.
--- Business implication: urban customer acquisition should be
--- prioritised for deposit growth.
  
 -- Q1a (i) — Average Savings Balance by Customer Segment
-
-
 
     SELECT
         customer_segment,
@@ -60,6 +32,7 @@
     GROUP BY province
     ORDER BY avg_balance DESC;
 
+   
 
 
 -- Q1a (iii) — Average Savings Balance by Urban/Rural
@@ -75,9 +48,37 @@
     GROUP BY urban_rural
     ORDER BY avg_balance DESC;
 
+ -- FINDINGS : From Q1a — Average Savings Balance by Segment, Province, Urban/Rural
+
+-- BY SEGMENT:
+-- Premium customers average LKR 2,655,800 — 6x more than Regular
+-- (LKR 424,430) and 32x more than Starter (LKR 82,628).
+-- Despite being the smallest group (90 customers), Premium holds
+-- a disproportionately large share of total deposits.
+-- Business implication: losing even a few Premium customers
+-- significantly impacts total deposit value.
+ 
+-- BY PROVINCE:
+-- Eastern province has the highest average balance (LKR 965,044)
+-- despite having only 49 customers — the second smallest group.
+-- This is unexpected as Eastern province is not typically a
+-- high-income region. Could be driven by a small number of
+-- high-value customers skewing the average upward.
+-- Sabaragamuwa (LKR 925,221) and Western (LKR 854,127) follow.
+-- Uva has the lowest average (LKR 630,638) — may reflect
+-- lower income levels in that region.
+ 
+-- BY URBAN/RURAL:
+-- Urban customers hold 33% more on average than Suburban
+-- (LKR 898,119 vs LKR 676,103).
+-- Rural sits in the middle at LKR 733,468 — slightly higher
+-- than Suburban which is unexpected and worth noting.
+-- Business implication: urban customer acquisition should be
+-- prioritised for deposit growth.   
 
 
 
+-- ============================================================
 
 -- Q1b — Age Band Analysis
 -- Banding logic (life-stage approach):
@@ -123,7 +124,7 @@
  
 
 
-
+-- ============================================================
 
 
 -- Q1c — Growing vs Draining Customers

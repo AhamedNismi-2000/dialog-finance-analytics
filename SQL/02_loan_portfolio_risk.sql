@@ -1,7 +1,6 @@
 
  — Q2: Loan Portfolio & Risk
 
-
 -- Q2a (i) — Overall Loan Penetration Rate
 
     SELECT
@@ -10,6 +9,13 @@
         ROUND(SUM(CASE WHEN has_loan = 'Yes' THEN 1 ELSE 0 END) * 100.0 / COUNT(*), 1 ) AS penetration_rate_pct
     FROM fintech
     WHERE has_loan IS NOT NULL;
+  -- ============================================================
+-- Q2a (i) — Overall Loan Penetration Rate
+
+
+-- FINDING:
+-- Overall loan penetration is 43.6% — nearly half the customer
+-- base holds a loan, which is relatively high for a fintech.
 
 
 
@@ -26,6 +32,16 @@
     GROUP BY customer_segment
     ORDER BY penetration_rate_pct DESC;
 
+  -- ============================================================
+-- Q2a (ii) — Loan Penetration by Customer Segment
+
+
+-- FINDING:
+-- Premium (45.1%) and Regular (44.7%) have similar penetration.
+-- Starter has the lowest at 38.5% — an opportunity to grow
+-- loan uptake among entry-level customers with appropriate
+-- risk controls given their higher default rate (see Q2c).
+
 
 
 -- Q2a (iii) — Loan Penetration by Acquisition Channel
@@ -40,10 +56,20 @@
     AND acquisition_channel IS NOT NULL
     GROUP BY acquisition_channel
     ORDER BY penetration_rate_pct DESC;
+ -- ============================================================
+-- Q2a (iii) — Loan Penetration by Acquisition Channel
+
+
+-- FINDING:
+-- Agent channel has the highest penetration at 47.9%,
+-- suggesting agents are the most effective at cross-selling loans.
+-- Digital channel is lowest at 41.2% — digital customers
+-- may be more self-directed and less receptive to loan offers.
+   
 
 
 
-    -- Q2b — Debt-to-Savings Ratio (DSR)
+    -- Q2b  — Debt-to-Savings Ratio (DSR)
     -- Formula: Outstanding_Loan_Balance / Savings_Balance
     -- DSR > 1.0 means the customer owes more than they have saved
     -- Summary: how many exceed 1.0 and total LKR exposure
@@ -58,6 +84,20 @@
     AND outstanding_loan_balance IS NOT NULL
     AND savings_balance IS NOT NULL
     AND savings_balance > 0;
+  
+  -- ============================================================
+-- Q2b — Debt-to-Savings Ratio (DSR) — Summary
+
+
+-- FINDING:
+-- 126 out of 212 loan customers (59.4%) exceed a DSR of 1.0,
+-- meaning they owe MORE than they have saved.
+-- Total LKR exposure from these high-risk customers: LKR 130,101,268.
+-- More than half of loan customers are technically over-leveraged.
+-- Business implication: if a significant economic shock occurs,
+-- these customers cannot cover their loan obligations from savings
+-- alone, representing direct credit risk to FinSight Lanka.
+
 
 
 -- Detail: individual DSR per customer (high risk first)
@@ -100,6 +140,15 @@
     GROUP BY customer_segment
     ORDER BY default_rate_pct DESC;
 
+ -- ============================================================
+-- Q2c (i) — Default Rate by Customer Segment
+
+
+-- FINDING:
+-- Starter segment defaults at 17.1% — more than double
+-- the Premium rate (9.8%) and double Regular (8.6%).
+-- Starter customers are the highest credit risk group.   
+
 
 
 -- Q2c (ii) — Default Rate by Loan Type
@@ -116,6 +165,15 @@
     GROUP BY loan_type
     ORDER BY default_rate_pct DESC;
 
+ -- ============================================================
+-- Q2c (ii) — Default Rate by Loan Type
+
+
+-- FINDING:
+-- Vehicle loans have the highest default rate at 16.0%,
+-- followed by Housing at 11.5%.
+-- Business loans are the safest at 6.8%.  
+
 
     -- Q2c (iii) — Default Rate by District
 
@@ -130,6 +188,15 @@
     AND district IS NOT NULL
     GROUP BY district
     ORDER BY default_rate_pct DESC;
+
+  -- ============================================================
+-- Q2c (iii) — Default Rate by District
+
+-- FINDING:
+-- Kurunegala (16.7%) and Ratnapura (14.8%) are the highest
+-- risk districts. Colombo and Gampaha also show elevated rates
+-- despite being urban centres.
+-- Jaffna and Badulla have the lowest default rates (4.5%).  
 
 
 
@@ -153,3 +220,13 @@
     AND loan_type IS NOT NULL
     GROUP BY customer_segment, loan_type
     ORDER BY default_rate_pct DESC;
+
+-- ============================================================
+-- Q2c (iv) — High Risk Combinations (Segment + Loan Type)
+
+-- FINDING:
+-- Starter segment + Vehicle loans represents the highest
+-- concentration of risk — both are individually elevated
+-- and together they warrant immediate attention.
+-- Recommendation: tighten lending criteria for Vehicle loans
+-- issued to Starter segment customers.
