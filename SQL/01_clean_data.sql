@@ -1,4 +1,5 @@
-SELECT * FROM fintech
+DROP TABLE IF EXISTS fintech 
+CASCADE
 
 SELECT 
    *
