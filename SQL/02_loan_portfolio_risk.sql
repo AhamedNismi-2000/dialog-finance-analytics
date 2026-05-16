@@ -9,9 +9,8 @@
         ROUND(SUM(CASE WHEN has_loan = 'Yes' THEN 1 ELSE 0 END) * 100.0 / COUNT(*), 1 ) AS penetration_rate_pct
     FROM fintech
     WHERE has_loan IS NOT NULL;
-  -- ============================================================
+ -- ============================================================
 -- Q2a (i) — Overall Loan Penetration Rate
-
 
 -- FINDING:
 -- Overall loan penetration is 43.6% — nearly half the customer
@@ -35,7 +34,6 @@
   -- ============================================================
 -- Q2a (ii) — Loan Penetration by Customer Segment
 
-
 -- FINDING:
 -- Premium (45.1%) and Regular (44.7%) have similar penetration.
 -- Starter has the lowest at 38.5% — an opportunity to grow
@@ -58,7 +56,6 @@
     ORDER BY penetration_rate_pct DESC;
  -- ============================================================
 -- Q2a (iii) — Loan Penetration by Acquisition Channel
-
 
 -- FINDING:
 -- Agent channel has the highest penetration at 47.9%,
@@ -87,7 +84,6 @@
   
   -- ============================================================
 -- Q2b — Debt-to-Savings Ratio (DSR) — Summary
-
 
 -- FINDING:
 -- 126 out of 212 loan customers (59.4%) exceed a DSR of 1.0,
@@ -143,7 +139,6 @@
  -- ============================================================
 -- Q2c (i) — Default Rate by Customer Segment
 
-
 -- FINDING:
 -- Starter segment defaults at 17.1% — more than double
 -- the Premium rate (9.8%) and double Regular (8.6%).
@@ -168,7 +163,6 @@
  -- ============================================================
 -- Q2c (ii) — Default Rate by Loan Type
 
-
 -- FINDING:
 -- Vehicle loans have the highest default rate at 16.0%,
 -- followed by Housing at 11.5%.
@@ -189,7 +183,7 @@
     GROUP BY district
     ORDER BY default_rate_pct DESC;
 
-  -- ============================================================
+-- ============================================================
 -- Q2c (iii) — Default Rate by District
 
 -- FINDING:
