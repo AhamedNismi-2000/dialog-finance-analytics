@@ -1,3 +1,6 @@
 SELECT * FROM fintech
 
-DROP TABLE IF EXISTS fintech
+SELECT 
+   *
+ FROM fintech
+ WHERE customer_id = 'FSL-0012'  
