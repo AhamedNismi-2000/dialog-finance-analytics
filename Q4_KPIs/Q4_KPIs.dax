@@ -1,8 +1,8 @@
 KPI 1 — Loan Default Rate
 Loan Default Rate % = 
 DIVIDE(
-    COUNTROWS(FILTER(fintech, fintech[loan_repayment_status] = "Defaulted")),
-    COUNTROWS(FILTER(fintech, fintech[has_loan] = "Yes")),
+    COUNTROWS(FILTER(public fintech, public fintech[loan_repayment_status] = "Defaulted")),
+    COUNTROWS(FILTER(public fintech, public fintech[has_loan] = "Yes")),
     0
 ) * 100
 
@@ -13,10 +13,10 @@ KPI 2 — High Risk Exposure (DSR > 1.0)
 
 High Risk Exposure % = 
 DIVIDE(
-    COUNTROWS(FILTER(fintech, 
-        fintech[has_loan] = "Yes" && 
-        fintech[outstanding_loan_balance] / fintech[savings_balance] > 1)),
-    COUNTROWS(FILTER(fintech, fintech[has_loan] = "Yes")),
+    COUNTROWS(FILTER(public fintech, 
+        public fintech[has_loan] = "Yes" && 
+        public fintech[outstanding_loan_balance] / public fintech[savings_balance] > 1)),
+    COUNTROWS(FILTER(public fintech, public fintech[has_loan] = "Yes")),
     0
 ) * 100
 
@@ -25,7 +25,7 @@ DIVIDE(
 
 
 
-
+Customers holding both fixed deposits and insurance
 
 KPI 3 — Cross-Sell Penetration
 
@@ -34,20 +34,50 @@ DIVIDE(
     COUNTROWS(FILTER('public fintech', 
         'public fintech'[has_fixed_deposit] = "Yes" && 
         'public fintech'[has_insurance] = "Yes")),
-    COUNTROWS(FILTER('public fintech',
-        'public fintech'[account_status] = "Active")),
+    COUNTROWS('public fintech'),
     0
 ) * 100
+
+Cross Sell Penetration % = 
+DIVIDE(
+    COUNTROWS(FILTER('public fintech', 
+        'public fintech'[has_fixed_deposit] = "Yes" && 
+        'public fintech '[has_insurance] = "Yes")),
+    COUNTROWS(FILTER('public fintech',
+        'public fintech '[account_status] = "Active")),
+    0
+) *100
+
+Cross Sell Penetration % = 
+DIVIDE(
+    COUNTROWS(
+        FILTER(
+            'public fintech',
+            'public fintech'[account_status] = "Active" &&
+            'public fintech'[has_fixed_deposit] = "Yes" &&
+            'public fintech'[has_insurance] = "Yes"
+        )
+    ),
+    COUNTROWS(
+        FILTER(
+            'public fintech',
+            'public fintech'[account_status] = "Active"
+        )
+    ),
+    0
+)  
+
+
 
 
 KPI 4 — Mobile App Adoption
 
 App Adoption Rate % = 
 DIVIDE(
-    COUNTROWS(FILTER(fintech, 
-        fintech[mobile_app_user] = "Yes" && 
-        fintech[account_status] = "Active")),
-    COUNTROWS(FILTER(fintech, fintech[account_status] = "Active")),
+    COUNTROWS(FILTER(public fintech, 
+        public fintech[mobile_app_user] = "Yes" && 
+        public fintech[account_status] = "Active")),
+    COUNTROWS(FILTER(public fintech, public fintech[account_status] = "Active")),
     0
 ) * 100
 
@@ -57,8 +87,8 @@ KPI 5 — Average Savings per Customer
 
 Avg Savings Per Customer = 
 AVERAGEX(
-    FILTER(fintech, 
-        fintech[account_status] = "Active" && 
-        NOT ISBLANK(fintech[savings_balance])),
-    fintech[savings_balance]
+    FILTER(public fintech, 
+        public fintech[account_status] = "Active" && 
+        NOT ISBLANK(public fintech[savings_balance])),
+    public fintech[savings_balance]
 )
