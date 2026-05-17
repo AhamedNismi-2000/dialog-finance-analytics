@@ -31,10 +31,11 @@ KPI 3 — Cross-Sell Penetration
 
 Cross Sell Penetration % = 
 DIVIDE(
-    COUNTROWS(FILTER(fintech, 
-        fintech[has_fixed_deposit] = "Yes" && 
-        fintech[has_insurance] = "Yes")),
-    COUNTROWS(fintech),
+    COUNTROWS(FILTER('public fintech', 
+        'public fintech'[has_fixed_deposit] = "Yes" && 
+        'public fintech'[has_insurance] = "Yes")),
+    COUNTROWS(FILTER('public fintech',
+        'public fintech'[account_status] = "Active")),
     0
 ) * 100
 
