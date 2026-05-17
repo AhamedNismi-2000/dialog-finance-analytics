@@ -1,12 +1,10 @@
--- ============================================================
--- FinSight Lanka Assessment — Q4: KPI Definitions
--- All values calculated from: fintech table (PostgreSQL)
--- Dashboard built in: Power BI (connected to PostgreSQL)
--- ============================================================
 
--- ============================================================
+-- FinSight Lanka Assessment — Q4: KPI Definitions
+
+
+
 -- KPI 1 — Loan Default Rate                    [AREA: Risk]
--- ============================================================
+
 -- Definition : % of loan customers who have defaulted
 -- Formula    : (Defaulted Loans / Total Loans) x 100
 -- Current Value: 11.4%
@@ -26,9 +24,9 @@ WHERE has_loan = 'Yes'
   AND loan_repayment_status IS NOT NULL;
 
 
--- ============================================================
+
 -- KPI 2 — High Risk Exposure (DSR > 1.0)       [AREA: Risk]
--- ============================================================
+
 -- Definition : % of loan customers whose outstanding loan
 --              balance exceeds their savings balance
 -- Formula    : (Customers with DSR > 1.0 / Total Loan Customers) x 100
@@ -53,9 +51,9 @@ WHERE has_loan = 'Yes'
     AND savings_balance > 0;
 
 
--- ============================================================
+
 -- KPI 3 — Cross-Sell Penetration Rate          [AREA: Growth]
--- ============================================================
+
 -- Definition : % of customers who hold BOTH a Fixed Deposit
 --              AND Insurance (fully cross-sold)
 -- Formula    : (Customers with FD AND Insurance / Total Customers) x 100
@@ -77,9 +75,9 @@ WHERE has_loan = 'Yes'
     FROM fintech;
 
 
--- ============================================================
+
 -- KPI 4 — Mobile App Adoption Rate           [AREA: Engagement]
--- ============================================================
+
 -- Definition : % of active customers using the mobile app
 -- Formula    : (Mobile App Users / Total Active Customers) x 100
 -- Current Value: Calculate below
@@ -101,9 +99,9 @@ WHERE has_loan = 'Yes'
     WHERE account_status = 'Active';
 
 
--- ============================================================
+
 -- KPI 5 — Average Savings Balance per Customer [AREA: Growth]
--- ============================================================
+
 -- Definition : Average savings balance held per active customer
 -- Formula    : Total Savings Balance / Number of Active Customers
 -- Current Value: Calculate below

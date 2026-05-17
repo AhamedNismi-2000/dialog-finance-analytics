@@ -1,0 +1,63 @@
+KPI 1 — Loan Default Rate
+Loan Default Rate % = 
+DIVIDE(
+    COUNTROWS(FILTER(fintech, fintech[loan_repayment_status] = "Defaulted")),
+    COUNTROWS(FILTER(fintech, fintech[has_loan] = "Yes")),
+    0
+) * 100
+
+
+
+
+KPI 2 — High Risk Exposure (DSR > 1.0)
+
+High Risk Exposure % = 
+DIVIDE(
+    COUNTROWS(FILTER(fintech, 
+        fintech[has_loan] = "Yes" && 
+        fintech[outstanding_loan_balance] / fintech[savings_balance] > 1)),
+    COUNTROWS(FILTER(fintech, fintech[has_loan] = "Yes")),
+    0
+) * 100
+
+
+
+
+
+
+
+
+KPI 3 — Cross-Sell Penetration
+
+Cross Sell Penetration % = 
+DIVIDE(
+    COUNTROWS(FILTER(fintech, 
+        fintech[has_fixed_deposit] = "Yes" && 
+        fintech[has_insurance] = "Yes")),
+    COUNTROWS(fintech),
+    0
+) * 100
+
+
+KPI 4 — Mobile App Adoption
+
+App Adoption Rate % = 
+DIVIDE(
+    COUNTROWS(FILTER(fintech, 
+        fintech[mobile_app_user] = "Yes" && 
+        fintech[account_status] = "Active")),
+    COUNTROWS(FILTER(fintech, fintech[account_status] = "Active")),
+    0
+) * 100
+
+
+
+KPI 5 — Average Savings per Customer
+
+Avg Savings Per Customer = 
+AVERAGEX(
+    FILTER(fintech, 
+        fintech[account_status] = "Active" && 
+        NOT ISBLANK(fintech[savings_balance])),
+    fintech[savings_balance]
+)
