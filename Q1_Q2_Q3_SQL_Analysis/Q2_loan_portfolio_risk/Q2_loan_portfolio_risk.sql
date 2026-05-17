@@ -55,6 +55,7 @@
     AND acquisition_channel IS NOT NULL
     GROUP BY acquisition_channel
     ORDER BY penetration_rate_pct DESC;
+    
  -- ============================================================
 -- Q2a (iii) — Loan Penetration by Acquisition Channel
 
