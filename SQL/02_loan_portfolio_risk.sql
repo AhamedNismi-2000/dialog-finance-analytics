@@ -9,6 +9,7 @@
         ROUND(SUM(CASE WHEN has_loan = 'Yes' THEN 1 ELSE 0 END) * 100.0 / COUNT(*), 1 ) AS penetration_rate_pct
     FROM fintech
     WHERE has_loan IS NOT NULL;
+
  -- ============================================================
 -- Q2a (i) — Overall Loan Penetration Rate
 
@@ -124,7 +125,7 @@
 
     SELECT
         customer_segment,
-        COUNT(*)                                                        AS total_loan_customers,
+        COUNT(*) AS total_loan_customers,
         SUM(CASE WHEN loan_repayment_status = 'Defaulted' THEN 1 ELSE 0 END)  AS defaulted,
         SUM(CASE WHEN loan_repayment_status = 'Delayed'   THEN 1 ELSE 0 END)  AS delayed,
         SUM(CASE WHEN loan_repayment_status = 'On-Time'   THEN 1 ELSE 0 END)  AS on_time,

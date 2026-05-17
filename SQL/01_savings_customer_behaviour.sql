@@ -106,7 +106,7 @@
     WHERE savings_balance IS NOT NULL
     AND age IS NOT NULL
     GROUP BY age_band
-    ORDER BY total_savings DESC;
+    ORDER BY age_band ;
 
 -- FINDINGS : From Q1b — Age Band Analysis
  
@@ -134,9 +134,9 @@
 
     SELECT
         flow_status,
-        COUNT(*)                                      AS customer_count,
+        COUNT(*) AS customer_count,
         ROUND(COUNT(*) * 100.0 / SUM(COUNT(*)) OVER(), 1)::numeric AS percentage,
-        ROUND(AVG(net_flow)::numeric, 2)                       AS avg_net_flow
+        ROUND(AVG(net_flow)::numeric, 2) AS avg_net_flow
     FROM (
         SELECT
             customer_id,
@@ -165,7 +165,7 @@
         ROUND(
             SUM(CASE WHEN (monthly_deposit_avg - monthly_withdrawal_avg) > 0 THEN 1 ELSE 0 END)
             * 100.0 / COUNT(*), 1
-        )::numeric            AS prcnt_growing,
+        )::numeric  AS prcnt_growing,
         ROUND(AVG(monthly_deposit_avg - monthly_withdrawal_avg)::numeric, 2)  AS avg_net_flow
     FROM fintech
     WHERE monthly_deposit_avg  IS NOT NULL
