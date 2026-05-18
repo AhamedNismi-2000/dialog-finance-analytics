@@ -4,7 +4,7 @@
 -- Q2a (i) — Overall Loan Penetration Rate
 
     SELECT
-        COUNT(*)     AS total_customers,
+        COUNT(*) AS total_customers,
         SUM(CASE WHEN has_loan = 'Yes' THEN 1 ELSE 0 END) AS customers_with_loan,
         ROUND(SUM(CASE WHEN has_loan = 'Yes' THEN 1 ELSE 0 END) * 100.0 / COUNT(*), 1 ) AS penetration_rate_pct
     FROM fintech
