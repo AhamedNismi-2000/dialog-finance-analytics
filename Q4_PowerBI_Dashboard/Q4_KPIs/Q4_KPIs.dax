@@ -1,4 +1,8 @@
+
+% of loan customers unable to repay their loans
+
 KPI 1 — Loan Default Rate
+
 Loan Default Rate % = 
 DIVIDE(
     COUNTROWS(FILTER(public fintech, public fintech[loan_repayment_status] = "Defaulted")),
@@ -8,6 +12,7 @@ DIVIDE(
 
 
 
+Customers whose loan amount exceeds their savings
 
 KPI 2 — High Risk Exposure (DSR > 1.0)
 
@@ -29,8 +34,6 @@ Customers holding both fixed deposits and insurance
 
 KPI 3 — Cross-Sell Penetration
 
-
-
 Cross Sell Penetration % = 
 DIVIDE(
     COUNTROWS(
@@ -46,6 +49,7 @@ DIVIDE(
 
 
 
+Active customers using the mobile banking app
 
 KPI 4 — Mobile App Adoption
 
@@ -59,6 +63,8 @@ DIVIDE(
 ) * 100
 
 
+
+Average savings held by active customers
 
 KPI 5 — Average Savings per Customer
 
