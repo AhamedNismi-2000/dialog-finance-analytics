@@ -29,24 +29,7 @@ Customers holding both fixed deposits and insurance
 
 KPI 3 — Cross-Sell Penetration
 
-Cross Sell Penetration % = 
-DIVIDE(
-    COUNTROWS(FILTER('public fintech', 
-        'public fintech'[has_fixed_deposit] = "Yes" && 
-        'public fintech'[has_insurance] = "Yes")),
-    COUNTROWS('public fintech'),
-    0
-) * 100
 
-Cross Sell Penetration % = 
-DIVIDE(
-    COUNTROWS(FILTER('public fintech', 
-        'public fintech'[has_fixed_deposit] = "Yes" && 
-        'public fintech '[has_insurance] = "Yes")),
-    COUNTROWS(FILTER('public fintech',
-        'public fintech '[account_status] = "Active")),
-    0
-) *100
 
 Cross Sell Penetration % = 
 DIVIDE(
@@ -55,17 +38,11 @@ DIVIDE(
             'public fintech',
             'public fintech'[account_status] = "Active" &&
             'public fintech'[has_fixed_deposit] = "Yes" &&
-            'public fintech'[has_insurance] = "Yes"
-        )
-    ),
-    COUNTROWS(
+            'public fintech'[has_insurance] = "Yes" ) ),
+ COUNTROWS(
         FILTER(
             'public fintech',
-            'public fintech'[account_status] = "Active"
-        )
-    ),
-    0
-)  
+            'public fintech'[account_status] = "Active"  ) ), 0)  
 
 
 
