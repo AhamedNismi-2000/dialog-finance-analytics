@@ -159,20 +159,17 @@ Launch a targeted cross-sell campaign for the **251 savings-only customers** hol
 ## 🛠️ How to Reproduce
 
 ### 1. Clone the repository
-```bash
-git clone https://github.com/[your-username]/finsight-lanka-assessment.git
-cd finsight-lanka-assessment
-```
+
 
 ### 2. Run data cleaning
 ```bash
 pip install pandas openpyxl
-python python/Step0_DataCleaning_FinSight.py
+python jupyter_notebooks_clean/01_clean_data.ipynb.py
 ```
 
 ### 3. Load cleaned data into PostgreSQL
 ```bash
-# Create a database named 'finsight' (or your preferred name)
+# Create a database named 'database_db' (or your preferred name)
 # Load the cleaned Excel file using pgAdmin or psycopg2
 ```
 
@@ -197,12 +194,6 @@ Open each `.sql` file in the `sql/` folder using **pgAdmin** or **psql** and run
 
 ---
 
-## 👤 Author
 
-**[Your Name]**  
-Analytics Trainee Assessment — Dialog Finance  
-Submitted: May 2026  
-
----
 
 *This assessment was completed as part of the Dialog Finance Analytics Trainee recruitment process. All data used is fictional and provided solely for assessment purposes.*
