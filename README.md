@@ -128,7 +128,7 @@ Five KPIs defined to track monthly customer base health, spanning **Risk**, **Gr
 
 > Dashboard built in Power BI, connected directly to PostgreSQL (`fintech` table).
 
-![Power BI Dashboard](./Images/FinSight_Dashboard)
+![Power BI Dashboard](./Images/FinSight_Dashboard.png)
 
 *Replace the image above with your actual Power BI dashboard screenshot.*
 
@@ -182,18 +182,6 @@ Open each `.sql` file in the `sql/` folder using **pgAdmin** or **psql** and run
 - Load the `fintech` table and apply the DAX measures from `Q4_KPI_Definitions.sql`
 
 ---
-
-## 📋 Submission Checklist
-
-- [x] Data cleaning script (Python)
-- [x] SQL queries for Q1, Q2, Q3, Q4
-- [x] Power BI dashboard (PDF export)
-- [x] 12-slide PowerPoint presentation
-- [x] Written Q5 & Q6 report (PDF)
-- [x] README documentation
-
----
-
 
 
 *This assessment was completed as part of the Dialog Finance Analytics Trainee recruitment process. All data used is fictional and provided solely for assessment purposes.*
