@@ -128,7 +128,7 @@ Five KPIs defined to track monthly customer base health, spanning **Risk**, **Gr
 
 > Dashboard built in Power BI, connected directly to PostgreSQL (`fintech` table).
 
-![Power BI Dashboard](dashboard/screenshot/PowerBI_Dashboard.png)
+![Power BI Dashboard](./Images/FinSight_Dashboard)
 
 *Replace the image above with your actual Power BI dashboard screenshot.*
 
