@@ -144,7 +144,6 @@ Five KPIs defined to track monthly customer base health, spanning **Risk**, **Gr
 
 ![Power BI Dashboard](./Images/FinSight_Dashboard.png)
 
-*Replace the image above with your actual Power BI dashboard screenshot.*
 
 ---
 
@@ -179,6 +178,7 @@ Launch a targeted cross-sell campaign for the **251 savings-only customers** hol
 ```bash
 pip install pandas openpyxl
 python jupyter_notebooks_clean/01_clean_data.ipynb.py
+
 ```
 
 ### 3. Load cleaned data into PostgreSQL
@@ -193,7 +193,7 @@ Open each `.sql` file in the `sql/` folder using **pgAdmin** or **psql** and run
 ### 5. Open Power BI Dashboard
 - Open Power BI Desktop
 - Get Data → PostgreSQL → connect to your local database
-- Load the `fintech` table and apply the DAX measures from `Q4_KPI_Definitions.sql`
+- Load the `fintech` table and apply the DAX measures from `Q4_KPI.DAX`
 
 ---
 
