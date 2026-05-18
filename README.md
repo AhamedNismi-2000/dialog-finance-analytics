@@ -23,37 +23,51 @@ The analysis covers customer savings behaviour, loan portfolio risk, digital eng
 ## 📂 Repository Structure
 
 ```
-finsight-lanka-assessment/
+DIALOG-FINANCE-ANALYTICS/
 │
-├── data/
-│   ├── raw/
-│   │   └── FinSightLanka_Dataset_Raw.xlsx        # Original dataset (as received)
-│   └── cleaned/
-│       └── FinSightLanka_Dataset_Cleaned.xlsx    # Cleaned dataset (output of Step 0)
+├── Data/
+│   ├── cleaned_data/
+│   │   └── FintechTrainee_Cleaned.xlsx           # Cleaned dataset (output of Step 0)
+│   └── raw_data/
+│       └── FintechTrainee.xlsx                   # Original dataset (as received)
 │
-├── sql/
-│   ├── Q1_Savings_CustomerBehaviour.sql          # Q1 queries + findings
-│   ├── Q2_LoanPortfolio_Risk.sql                 # Q2 queries + findings
-│   ├── Q3_DigitalEngagement_ProductHoldings.sql  # Q3 queries + findings
-│   └── Q4_KPI_Definitions.sql                    # KPI calculation queries
+├── Images/
+│   └── FinSight_Dashboard.png                    # Power BI dashboard screenshot
 │
-├── python/
-│   └── Step0_DataCleaning_FinSight.py            # Full data cleaning script
+├── PythonScript/
+│   ├── jupyter_notebooks_clean/
+│   │   └── 01_clean_data.ipynb                   # Step 0: Data cleaning notebook
+│   └── python_data_load_postgres/
+│       └── 01_load_table_postgres.py             # Script to load cleaned data into PostgreSQL
 │
-├── presentation/
-│   └── FinSight_Lanka_Assessment.pptx            # 12-slide presentation
+├── Q1_Q2_Q3_SQL_Analysis/
+│   ├── Q1_savings_customer_behaviour/
+│   │   ├── Q1_savings_customer_behaviour.sql     # Q1 queries + findings
+│   │   └── Q1_savings_customer_behaviour.xlsx    # Q1 query results
+│   ├── Q2_loan_portfolio_risk/
+│   │   ├── Q2_loan_portfolio_risk.sql            # Q2 queries + findings
+│   │   └── Q2_loan_portfolio_risk.xlsx           # Q2 query results
+│   └── Q3_digital_engagement_product_holdings/
+│       ├── Q3_digital_engagement_product_holdings.sql   # Q3 queries + findings
+│       └── Q3_digital_engagement_product_holdings.xlsx  # Q3 query results
 │
-├── report/
-│   └── Q5_Q6_BoardSummary_SelfCritique.pdf       # Written Q5 & Q6 answers (LaTeX)
+├── Q4_kpi_reference_sql/
+│   ├── 04_kpi_ref.sql                            # KPI calculation queries + definitions
+│   └── 04_kpi_ref.xlsx                           # KPI reference values
 │
-├── dashboard/
-│   └── screenshot/
-│       └── PowerBI_Dashboard.png                 # [See dashboard screenshot below]
+├── Q4_PowerBI_Dashboard/
+│   ├── Q4_KPIs/
+│   │   └── Q4_KPIs.dax                           # All 5 DAX measures
+│   └── FinSight_Dashboard.pbix                   # Power BI dashboard file
 │
+├── Q5_Q6_BoardSummary_SelfCritique/
+│   └── Q5_Q6_BoardSummary_SelfCritique.docx      # Written Q5 & Q6 answers
+│
+├── .gitignore
 └── README.md
 ```
 
----
+
 
 ## 🔍 Assessment Questions & Approach
 
